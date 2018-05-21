@@ -64,18 +64,18 @@ func main() {
 			cars.Filter(ByMake("Honda")).
 				Reduce(JsonReducer(cars), Collection{}))
 		//
-		//PrintCars("Reduce, Honda, JSON",
-		//	cars.Reduce(MakeReducer("Honda", cars), Collection{}).
-		//		Reduce(JsonReducer(cars), Collection{}))
-		//
-		//PrintCars2("Reduce - Lexus",
-		//	cars.Filter(ByMake("Lexus")).
-		//		Reduce2(CarTypeReducer(cars), []CarType{}))
-		//
-		//PrintCars("ByModel - Accord up/downgraded",
-		//	cars.Filter(ByModel("Accord")).
-		//		Map(Upgrade()).
-		//		Map(Downgrade()))
+		PrintCars("Reduce, Honda, JSON",
+			cars.Reduce(MakeReducer("Honda", cars), Collection{}).
+				Reduce(JsonReducer(cars), Collection{}))
+
+		PrintCars2("Reduce - Lexus",
+			cars.Filter(ByMake("Lexus")).
+				Reduce2(CarTypeReducer(cars), []CarType{}))
+
+		PrintCars("ByModel - Accord up/downgraded",
+			cars.Filter(ByModel("Accord")).
+				Map(Upgrade()).
+				Map(Downgrade()))
 
 		PrintCars("GenerateCars(1, 3)",
 			cars.GenerateCars(1, 3))
