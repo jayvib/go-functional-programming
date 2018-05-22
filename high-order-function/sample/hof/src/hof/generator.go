@@ -36,7 +36,7 @@ func (cars Collection) GenerateCars(start, limit int) Collection {
 
 	next := carGenerator(iterator, start -1, numCarsToGenerate)
 
-	carIndex, done := next()
+	carIndex, done := next() // this is the generator function
 	for !done {
 		// Launch the goroutine to perform the search.
 		go func(carIndex int) {

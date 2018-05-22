@@ -23,11 +23,11 @@ func initCarsDB() []IndexedCar {
 }
 
 func LoadCars() Collection {
-	return CsvToStruct("cars.csv")
+	return CsvToStruct("hof/cars.csv")
 }
 
 func LoadMoreCars() Collection {
-	return CsvToStruct("more_cars.csv")
+	return CsvToStruct("hof/more_cars.csv")
 }
 
 
@@ -52,7 +52,7 @@ func (cars Collection) Reduce2(fn ReducerFunc2, accumulator CarCollection) CarCo
 	return result
 }
 
-func JsonReducer(cars Collection) ReducerFunc  {
+func JsonReducer() ReducerFunc  {
 	return func(car string, cars Collection) Collection {
 		JSON := fmt.Sprintf("{\"car\": {\"make\": \"%s\", \"model\": \"%s\"}}", GetMake(car), GetModel(car))
 		cars = append(cars, JSON)
@@ -60,7 +60,7 @@ func JsonReducer(cars Collection) ReducerFunc  {
 	}
 }
 
-func CarTypeReducer(cars Collection) ReducerFunc2 {
+func CarTypeReducer() ReducerFunc2 {
 
 	return func(car string, cars CarCollection) CarCollection {
 		JSON := fmt.Sprintf("{\"make\": \"%s\", \"model\": \"%s\"}", GetMake(car), GetModel(car))

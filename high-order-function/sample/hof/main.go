@@ -62,15 +62,15 @@ func main() {
 
 		PrintCars("Filter Honda, Reduce JSON",
 			cars.Filter(ByMake("Honda")).
-				Reduce(JsonReducer(cars), Collection{}))
+				Reduce(JsonReducer(), Collection{}))
 		//
 		PrintCars("Reduce, Honda, JSON",
 			cars.Reduce(MakeReducer("Honda", cars), Collection{}).
-				Reduce(JsonReducer(cars), Collection{}))
+				Reduce(JsonReducer(), Collection{}))
 
 		PrintCars2("Reduce - Lexus",
 			cars.Filter(ByMake("Lexus")).
-				Reduce2(CarTypeReducer(cars), []CarType{}))
+				Reduce2(CarTypeReducer(), []CarType{}))
 
 		PrintCars("ByModel - Accord up/downgraded",
 			cars.Filter(ByModel("Accord")).
@@ -85,7 +85,7 @@ func main() {
 				Filter(ByDomestic()).
 				Map(Upgrade()).
 				Filter(ByHasNumber()).
-				Reduce(JsonReducer(cars), Collection{}))
+				Reduce(JsonReducer(), Collection{}))
 
 	}
 }
