@@ -27,5 +27,5 @@ func main() {
 	for _, c := range coll {
 		fmt.Println(c)
 	}
-	
+
 }
