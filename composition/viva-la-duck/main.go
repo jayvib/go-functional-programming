@@ -1,15 +1,15 @@
 package main
 
 import (
-	"fmt"
 	"errors"
+	"fmt"
 	"log"
 )
 
 const DASHES = "--------------------"
 
 type Pond struct {
-	BugSupply int
+	BugSupply       int
 	StrokesRequired int
 }
 
@@ -27,21 +27,24 @@ type SurvivalBehaviors interface {
 }
 
 type Foot struct{}
+
 func (Foot) PaddleFoot(strokeSupply *int) { // passed parameter will be side-effect by the inside operation
 	fmt.Println("- Foot, paddle!")
 	*strokeSupply--
 }
 
 type Bill struct{}
+
 func (Bill) EatBug(strokeSupply *int) {
 	*strokeSupply++
 	fmt.Println("-Bill, eat a bug!")
 }
 
 type Duck struct{}
+
 func (Duck) Stroke(s StrokeBehavior, strokeSupply *int, p Pond) (err error) {
 	for i := 0; i < p.StrokesRequired; i++ {
-		if *strokeSupply < p.StrokesRequired - 1 {
+		if *strokeSupply < p.StrokesRequired-1 {
 			return errors.New("our duck died")
 		}
 		s.PaddleFoot(strokeSupply)
@@ -86,8 +89,8 @@ func main() {
 	var duck Duck
 	capabilities := Capabilities{
 		StrokeBehavior: Foot{},
-		EatBehavior: Bill{},
-		strokes: 5,
+		EatBehavior:    Bill{},
+		strokes:        5,
 	}
 
 	ponds := []Pond{

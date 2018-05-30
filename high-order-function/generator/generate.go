@@ -24,4 +24,3 @@ func main() {
 	fmt.Println(fn())
 	fmt.Println(fn())
 }
-

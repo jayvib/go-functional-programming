@@ -1,7 +1,5 @@
 package itertools
 
-
-
 type Iter chan interface{}
 
 func New(els ...interface{}) Iter {
@@ -17,4 +15,3 @@ func New(els ...interface{}) Iter {
 
 	return outstream
 }
-

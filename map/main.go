@@ -36,7 +36,6 @@ func main() {
 	result := Map(Collection{2, 4, 5, 8, 10}, transformationFunc10)
 	fmt.Println(result)
 
-
 	transformationFuncUpper := func(val, _, _ Object) Object {
 		return strings.ToUpper(val.(string))
 	}

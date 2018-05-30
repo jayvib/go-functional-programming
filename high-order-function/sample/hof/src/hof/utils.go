@@ -1,11 +1,11 @@
 package hof
 
 import (
-	"path/filepath"
 	"encoding/csv"
-	"os"
-	"log"
 	"fmt"
+	"log"
+	"os"
+	"path/filepath"
 	s "strings"
 )
 

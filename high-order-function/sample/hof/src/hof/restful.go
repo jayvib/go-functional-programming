@@ -1,23 +1,21 @@
 package hof
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/julienschmidt/httprouter"
-	"net/http"
-	"encoding/json"
 	"log"
+	"net/http"
 	"strconv"
 )
 
-
-
 func CarsIndexHandler(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
-	response, err := getAllCarsJson();
+	response, err := getAllCarsJson()
 	if err != nil {
 		panic(err)
 	}
 	w.Header().Set("Content-Type", "application/json")
-	fmt.Fprintf(w	, string(response))
+	fmt.Fprintf(w, string(response))
 }
 
 func CarHandler(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
@@ -25,14 +23,13 @@ func CarHandler(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 	if err != nil {
 		log.Fatal("CarHandler unable to find car (%v) by index\n", p[0].Value)
 	}
-	response, err := getThisCarJson(carIndex);
+	response, err := getThisCarJson(carIndex)
 	if err != nil {
 		panic(err)
 	}
 	w.Header().Set("Content-Type", "application/json")
-	fmt.Fprintf(w	, string(response))
+	fmt.Fprintf(w, string(response))
 }
-
 
 func getAllCarsJson() ([]byte, error) {
 	return json.MarshalIndent(Payload{CarsDB}, "", "  ")
@@ -45,7 +42,7 @@ func getThisCarJson(carIndex int) ([]byte, error) {
 // retrieve performs a HTTP Get request for the rss feed and decodes the results.
 func GetThisCar(carIndex int) (*IndexedCar, error) {
 
-	thisCarJson, err  := getThisCarJson(carIndex)
+	thisCarJson, err := getThisCarJson(carIndex)
 	if err != nil {
 		panic(err)
 	}

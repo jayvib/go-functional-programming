@@ -24,7 +24,7 @@ func generator(nums []int, mapfunc func(int) int) func() int {
 }
 
 func main() {
-	nums := []int{3, 4 ,5 ,6}
+	nums := []int{3, 4, 5, 6}
 	fn := func(n int) int {
 		return n * 10
 	}

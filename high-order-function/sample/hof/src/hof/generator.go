@@ -1,10 +1,9 @@
 package hof
 
 import (
-	"sync"
 	"log"
+	"sync"
 )
-
 
 func carGenerator(iterator func(int) int, lower int, upper int) func() (int, bool) {
 	return func() (int, bool) {
@@ -17,7 +16,6 @@ func iterator(i int) int {
 	i += 1
 	return i
 }
-
 
 func (cars Collection) GenerateCars(start, limit int) Collection {
 
@@ -34,7 +32,7 @@ func (cars Collection) GenerateCars(start, limit int) Collection {
 	// they process the individual feeds.
 	waitGroup.Add(numCarsToGenerate)
 
-	next := carGenerator(iterator, start -1, numCarsToGenerate)
+	next := carGenerator(iterator, start-1, numCarsToGenerate)
 
 	carIndex, done := next() // this is the generator function
 	for !done {
@@ -63,19 +61,16 @@ func (cars Collection) GenerateCars(start, limit int) Collection {
 		close(carChannel)
 	}()
 
-
 	// Start displaying carChannel as they are available and
 	// return after the final result is displayed.
 	printCars(carChannel, start, limit)
 	return generatedCars
 }
 
-
-
 // getCars writes results to the console window as they
 // are received by the individual goroutines.
 func printCars(indexedCars chan *IndexedCar, start, limit int) {
-	log.Printf("\nGenerated Cars (%d to %d)\n%s\n", start, start + limit, DASHES)
+	log.Printf("\nGenerated Cars (%d to %d)\n%s\n", start, start+limit, DASHES)
 	// The channel blocks until a car is written to the channel.
 	// Once the channel is closed the for loop terminates.
 	var cars Collection

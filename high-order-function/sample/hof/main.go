@@ -2,17 +2,16 @@ package main
 
 import (
 	. "github.com/go-functional-programming/high-order-function/sample/hof/src/hof"
-	"log"
-	"os"
 	"github.com/julienschmidt/httprouter"
+	"log"
 	"net/http"
+	"os"
 )
 
 func init() {
 	log.SetFlags(log.Lshortfile | log.Ldate)
 	log.SetOutput(os.Stdout)
 }
-
 
 func main() {
 
@@ -44,9 +43,9 @@ func main() {
 		//
 		PrintCars("More Cars, Domestic, Numeric, GM",
 			cars.AddCars(moreCars). // be careful using function that mutates states... some time in the future it will cause bugs.
-				Filter(ByDomestic()).
-				Filter(ByHasNumber()).
-				Filter(ByMake("GM")))
+						Filter(ByDomestic()).
+						Filter(ByHasNumber()).
+						Filter(ByMake("GM")))
 		//
 		PrintCars("More Cars, Domestic, Numeric, Ford",
 			cars.AddCars(moreCars).
@@ -89,4 +88,3 @@ func main() {
 
 	}
 }
-

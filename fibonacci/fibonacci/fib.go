@@ -39,4 +39,3 @@ func FibChanneled(n int) int {
 
 	return result
 }
-

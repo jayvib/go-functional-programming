@@ -1,11 +1,11 @@
 package hof
 
 import (
-	"fmt"
-	s "strings"
-	"regexp"
-	"log"
 	"encoding/json"
+	"fmt"
+	"log"
+	"regexp"
+	s "strings"
 )
 
 var CarsDB = initCarsDB()
@@ -30,11 +30,9 @@ func LoadMoreCars() Collection {
 	return CsvToStruct("hof/more_cars.csv")
 }
 
-
 func (cars Collection) AddCars(carsToAdd Collection) Collection {
 	return append(cars, carsToAdd...)
 }
-
 
 // Reduce collection based on the function
 func (cars Collection) Reduce(fn ReducerFunc, accumulator Collection) Collection {
@@ -52,7 +50,7 @@ func (cars Collection) Reduce2(fn ReducerFunc2, accumulator CarCollection) CarCo
 	return result
 }
 
-func JsonReducer() ReducerFunc  {
+func JsonReducer() ReducerFunc {
 	return func(car string, cars Collection) Collection {
 		JSON := fmt.Sprintf("{\"car\": {\"make\": \"%s\", \"model\": \"%s\"}}", GetMake(car), GetModel(car))
 		cars = append(cars, JSON)
@@ -74,8 +72,7 @@ func CarTypeReducer() ReducerFunc2 {
 	}
 }
 
-
-func MakeReducer(make string, cars Collection) ReducerFunc  {
+func MakeReducer(make string, cars Collection) ReducerFunc {
 	return func(car string, cars Collection) Collection {
 		if s.Contains(car, make) {
 			cars = append(cars, car)
@@ -83,7 +80,6 @@ func MakeReducer(make string, cars Collection) ReducerFunc  {
 		return cars
 	}
 }
-
 
 func (cars Collection) Filter(fn FilterFunc) Collection {
 	filteredCars := make(Collection, 0)
@@ -150,15 +146,12 @@ func Downgrade() MapFunc {
 	}
 }
 
-
 func UpgradeLabel(car string) string {
 	return map[string]string{
-		"Honda": "LX",
-		"Lexus": "LS",
+		"Honda":  "LX",
+		"Lexus":  "LS",
 		"Toyota": "EV",
-		"Ford": "XL",
-		"GM": "X",
+		"Ford":   "XL",
+		"GM":     "X",
 	}[GetMake(car)]
 }
-
-

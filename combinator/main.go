@@ -8,8 +8,8 @@ const (
 	MEDIUM
 	LARGE
 	XLARGE
-	XXLARGE WordSize = 50
-	SEPARATOR  = ", "
+	XXLARGE   WordSize = 50
+	SEPARATOR          = ", "
 )
 
 type stringFunc func(s string) (result string)

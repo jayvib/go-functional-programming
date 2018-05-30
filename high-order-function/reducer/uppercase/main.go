@@ -1,12 +1,11 @@
 package main
 
 import (
-	"strings"
 	"fmt"
+	"strings"
 )
 
 type ReducerFunc func(string, []string) []string
-
 
 func Reducer(collection []string, accumulate []string, fn ReducerFunc) []string {
 	result := accumulate

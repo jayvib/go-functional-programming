@@ -1,7 +1,7 @@
 package collection
 
 const (
-	INVALID_INT_VAL = -1
+	INVALID_INT_VAL    = -1
 	INVALID_STRING_VAL = "<nil>"
 )
 
@@ -11,7 +11,7 @@ type CarIterator interface {
 
 type Collection struct {
 	index int
-	List []string
+	List  []string
 }
 
 func NewCollection(s []string) *Collection {

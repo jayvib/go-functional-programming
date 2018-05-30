@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func addByTwo() func() int {
-	sum := 0  // closure
+	sum := 0 // closure
 	return func() int {
 		sum += 2
 		return sum

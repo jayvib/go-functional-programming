@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/go-functional-programming/collection"
 	"fmt"
+	"github.com/go-functional-programming/collection"
 )
 
 func main() {

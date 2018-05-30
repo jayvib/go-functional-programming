@@ -4,7 +4,7 @@ import "fmt"
 
 type StrFunc func(string) string
 
-func Compose (f, g StrFunc) StrFunc {
+func Compose(f, g StrFunc) StrFunc {
 	return func(s string) string {
 		return g(f(s))
 	}
@@ -15,7 +15,7 @@ func main() {
 		return fmt.Sprintf("Hoyp! %s", name)
 	}
 
-	decorate := func (msg string) string {
+	decorate := func(msg string) string {
 		return fmt.Sprintf("------|%s|-----", msg)
 	}
 

@@ -25,5 +25,3 @@ func main() {
 
 	fmt.Println(ni(nums...))
 }
-
-

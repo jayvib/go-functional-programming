@@ -3,7 +3,7 @@ package fibonacci
 import "testing"
 
 var fibTest = []struct {
-	a int
+	a        int
 	expected int
 }{
 	{1, 1},
@@ -13,7 +13,6 @@ var fibTest = []struct {
 	{20, 10946},
 	{42, 433494437},
 }
-
 
 func TestFibSimple(t *testing.T) {
 	for _, ft := range fibTest {
