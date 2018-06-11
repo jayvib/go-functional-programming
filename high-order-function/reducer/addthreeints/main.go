@@ -7,7 +7,7 @@ type reducefunc func(i int, collection []int) []int
 func reducer(ints []int, intCollection []int, fn reducefunc) []int {
 	collection := intCollection
 	for _, c := range ints {
-		collection = append(fn(c, collection))
+		collection = fn(c, collection)
 	}
 	return collection
 }

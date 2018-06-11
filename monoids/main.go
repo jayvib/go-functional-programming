@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/go-functional-programming/monoids/name"
+	"github.com/go-functional-programming/monoids/name" 
 	"fmt"
 )
 
