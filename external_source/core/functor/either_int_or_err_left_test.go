@@ -4,7 +4,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/arschles/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestEitherIntOrErrLeft(t *testing.T) {

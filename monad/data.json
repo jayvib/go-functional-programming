@@ -1,0 +1,12 @@
+{
+  "car": {
+    "vin": "MFNFH66FBZQ99",
+    "make": "Honda",
+    "model": "Accord",
+    "options": {
+      "option_1": "GPS",
+      "option_2": "Alloy Wheels"
+    }
+  },
+  "timestamp": "20171030003135"
+}

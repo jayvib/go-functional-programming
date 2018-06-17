@@ -1,0 +1,5 @@
+package monad
+
+
+func main() {
+}

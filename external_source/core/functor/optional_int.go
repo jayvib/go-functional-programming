@@ -3,7 +3,7 @@ package functor
 import (
 	"fmt"
 
-	"github.com/go-functional/core/util"
+	"github.com/go-functional-programming/external_source/core/util"
 )
 
 // OptionalIntFunctor is a container for an int that may or may not exist.

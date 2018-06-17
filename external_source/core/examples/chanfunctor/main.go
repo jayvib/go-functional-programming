@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/go-functional/core/functor"
+	"github.com/go-functional-programming/external_source/core/functor"
 )
 
 func main() {

@@ -3,8 +3,8 @@ package monoid
 import (
 	"testing"
 
-	"github.com/arschles/assert"
-	"github.com/go-functional/core/typeclass"
+	"github.com/go-functional-programming/external_source/core/typeclass"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestIntSlice(t *testing.T) {

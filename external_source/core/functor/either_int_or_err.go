@@ -2,8 +2,7 @@ package functor
 
 import (
 	"fmt"
-
-	"github.com/go-functional/core/util"
+	"github.com/go-functional-programming/external_source/core/util"
 )
 
 // EitherIntOrErr is a container for either an int or an error. The left side of the
