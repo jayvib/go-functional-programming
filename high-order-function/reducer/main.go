@@ -9,7 +9,7 @@ type items []string
 func (i items) Fold(fn FoldFunc, accumulate items) items {
 	result := accumulate
 	for _, item := range i {
-		result = append(fn(item, result))
+		result = fn(item, result)
 	}
 	return result
 }

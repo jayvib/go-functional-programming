@@ -7,7 +7,7 @@ type reducefunc func(i int, collection []int) []int
 func reducer(ints []int, intCollection []int, fn reducefunc) []int {
 	collection := intCollection
 	for _, c := range ints {
-		collection = append(fn(c, collection))
+		collection = fn(c, collection)
 	}
 	return collection
 }
@@ -29,7 +29,7 @@ func main() {
 		}
 	}
 
-	newAddedCollection := reducer(ints, accumulate, addInt(20))
+	newAddedCollection := reducer(ints, accumulate, addInt(0))
 	newMultipliedCollection := reducer(ints, accumulate, multiplyInt(20))
 	fmt.Printf("%#v\n", newAddedCollection)
 	fmt.Println(newMultipliedCollection)
